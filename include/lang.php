@@ -62,6 +62,8 @@ define( 'MUCD_NETWORK_PAGE_DUPLICATE_FILES', __( 'Files', MUCD_DOMAIN ) );
 define( 'MUCD_NETWORK_PAGE_DUPLICATE_FILES_TEXT_1', __( 'Duplicate files from duplicated site upload directory', MUCD_DOMAIN ) );
 define( 'MUCD_NETWORK_PAGE_DUPLICATE_USERS', __( 'Users and roles', MUCD_DOMAIN ) );
 define( 'MUCD_NETWORK_PAGE_DUPLICATE_USERS_TEXT_1', __( 'Keep users and roles from duplicated site', MUCD_DOMAIN ) );
+define( 'MUCD_NETWORK_PAGE_DUPLICATE_CONTENT', __( 'Content', MUCD_DOMAIN ) );
+define( 'MUCD_NETWORK_PAGE_DUPLICATE_CONTENT_TEXT_1', __( 'Truncate posts, comments, taxonomy, terms', MUCD_DOMAIN ) );
 define( 'MUCD_NETWORK_PAGE_DUPLICATE_LOG', __( 'Log', MUCD_DOMAIN ) );
 define( 'MUCD_NETWORK_PAGE_DUPLICATE_LOG_TEXT_1', __( 'Generate log file', MUCD_DOMAIN ) );
 define( 'MUCD_NETWORK_PAGE_DUPLICATE_LOG_TEXT_2', __( 'Log directory', MUCD_DOMAIN ) );

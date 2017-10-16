@@ -112,6 +112,7 @@ if( !class_exists( 'MUCD_Admin' ) ) {
                 'email'         => '',
                 'copy_files'    => 'yes',
                 'keep_users'    => 'no',
+                'truncate_content'  => 'no',
                 'log'           => 'no',
                 'log-path'      => '',
                 'advanced'      => 'hide-advanced-options'
@@ -427,6 +428,7 @@ if( !class_exists( 'MUCD_Admin' ) ) {
             $data = $init_data;
             $data['copy_files'] = 'no';
             $data['keep_users'] = 'no';
+            $data['truncate_content'] = 'no';
             $data['log'] = 'no';          
 
             // Check referer and nonce
@@ -552,6 +554,13 @@ if( !class_exists( 'MUCD_Admin' ) ) {
                     }
                     else {
                         update_site_option( 'mucd_keep_users', 'no' );
+                    }
+
+                    if (isset( $_POST['mucd_truncate_content']) && $_POST['mucd_truncate_content']=='yes') {
+                        update_site_option( 'mucd_truncate_content', 'yes' );
+                    }
+                    else {
+                        update_site_option( 'mucd_truncate_content', 'no' );
                     }
 
                     if (isset( $_POST['mucd_log']) && $_POST['mucd_log']=='yes') {

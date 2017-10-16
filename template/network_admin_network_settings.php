@@ -42,6 +42,14 @@
     </tr>
 
     <tr>
+        <th scope="row"><?php echo MUCD_NETWORK_PAGE_DUPLICATE_CONTENT; ?></th>
+        <td>
+            <label><input <?php checked( get_site_option( 'mucd_truncate_content', 'no' ), 'yes' ); ?> name="mucd_truncate_content" type="checkbox" value="yes" /><?php echo MUCD_NETWORK_PAGE_DUPLICATE_CONTENT_TEXT_1; ?></label><br>
+        </td>
+    </tr>
+
+
+    <tr>
         <th scope="row"><?php echo MUCD_NETWORK_PAGE_DUPLICATE_LOG; ?></th>
         <td>
             <label><input <?php checked( get_site_option( 'mucd_log', 'no' ), 'yes' ); ?> id="log-box" name="mucd_log" type="checkbox" value="yes" /><?php echo MUCD_NETWORK_PAGE_DUPLICATE_LOG_TEXT_1; ?></label>

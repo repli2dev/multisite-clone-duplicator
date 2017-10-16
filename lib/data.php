@@ -357,6 +357,36 @@ if( !class_exists( 'MUCD_Data' ) ) {
         }
 
         /**
+         * Truncate basic content tables
+         * @since 1.4.2
+         * @param  int $to_site_id   new site id
+         */
+        public static function truncate_content_tables($to_site_id)
+        {
+            global $wpdb;
+
+            // Destination Site information
+            $to_site_prefix = $wpdb->get_blog_prefix( $to_site_id );                        // prefix
+
+            $tables = [
+                'posts',
+                'postmeta',
+                'comments',
+                'commentmeta',
+                'terms',
+                'termmeta',
+                'term_relationships',
+                'term_taxonomy',
+            ];
+            foreach ($tables as $table) {
+                $table_name = $to_site_prefix . $table;
+
+                // Truncate content in destination table
+                self::do_sql_query('TRUNCATE `' . $table_name . '`');
+            }
+        }
+
+        /**
          * Stop process on SQL Error, print and log error, removes the new blog
          * @since 0.2.0
          * @param  string  $sql_query the query

@@ -43,6 +43,9 @@ class Site_Duplicate_Subcommand extends WP_CLI_Command {
      * [--keep_users]
      * : If set, the new site will have the same users as the duplicated site.
      *
+     * [--truncate_content]
+     * : If set, the content of new site will be truncated (posts, links, comments, taxonomies, terms).
+     *
      * [--log=<dir_path>]
      * : If set, a log will be written in this directory (please check this directory is writable).
      *
@@ -129,6 +132,9 @@ class Site_Duplicate_Subcommand extends WP_CLI_Command {
         // Keep users ?
         $keep_users = isset( $assoc_args['keep_users'] ) ? 'yes' : 'no';
 
+        // Keep content ?
+        $truncate_content = isset( $assoc_args['truncate_content'] ) ? 'yes' : 'no';
+
         // Write log
         if(isset( $assoc_args['log'] )) {
             $log = 'yes';
@@ -146,6 +152,7 @@ class Site_Duplicate_Subcommand extends WP_CLI_Command {
             'email' => $email,
             'copy_files' => $copy_files,
             'keep_users' => $keep_users,
+            'truncate_content' => $truncate_content,
             'log' => $log,
             'log-path' => $log_path,
             'from_site_id' => $source,

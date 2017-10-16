@@ -39,6 +39,7 @@ if( !class_exists( 'MUCD_Duplicate' ) ) {
             $title = $data['title'];
             $from_site_id = $data['from_site_id'];
             $keep_users = $data['keep_users'];
+            $truncate_content = $data['truncate_content'];
             $copy_file = $data['copy_files'];
             $public = $data['public'];
             $network_id = $data['network_id'];
@@ -90,6 +91,11 @@ if( !class_exists( 'MUCD_Duplicate' ) ) {
                 do_action( 'mucd_before_copy_users', $from_site_id, $to_site_id );
                 $result = MUCD_Duplicate::copy_users($from_site_id, $to_site_id);
                 do_action( 'mucd_after_copy_users', $from_site_id, $to_site_id );
+            }
+            if($truncate_content=='yes'){
+                do_action( 'mucd_before_truncate_content', $from_site_id, $to_site_id );
+                $result = MUCD_Data::truncate_content_tables($to_site_id);
+                do_action( 'mucd_before_truncate_content', $from_site_id, $to_site_id );
             }
 
             update_blog_option( $to_site_id, 'mucd_duplicable', "no");
